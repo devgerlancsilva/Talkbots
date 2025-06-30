@@ -18,7 +18,7 @@
  * limitations under the License.
  */
 
-import AgentEdit from './components/AgentEdit.tsx';
+import AgentEdit from '/components/AgentEdit.tsx';
 import ControlTray from './components/console/control-tray/ControlTray';
 import ErrorScreen from './components/demo/ErrorSreen';
 import KeynoteCompanion from './components/demo/keynote-companion/KeynoteCompanion';
