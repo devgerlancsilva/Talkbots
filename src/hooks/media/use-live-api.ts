@@ -19,12 +19,12 @@
  */
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { GenAILiveClient } from '../../lib/genai-live-client';
+import { GenAILiveClient } from '@/lib/genai-live-client.ts';
 import { LiveConnectConfig } from '@google/genai';
-import { AudioStreamer } from '../../lib/audio-streamer';
-import { audioContext } from '../../lib/utils';
-import VolMeterWorket from '../../lib/worklets/vol-meter';
-import { DEFAULT_LIVE_API_MODEL } from '../../lib/constants';
+import { AudioStreamer } from '@/lib/audio-streamer.ts';
+import { audioContext } from '@/lib/utils.ts';
+import VolMeterWorket from '@/lib/worklets/vol-meter.ts';
+import { DEFAULT_LIVE_API_MODEL } from '@/lib/constants.ts';
 
 export type UseLiveApiResults = {
   client: GenAILiveClient;
@@ -59,9 +59,13 @@ export function useLiveApi({
       audioContext({ id: 'audio-out' }).then((audioCtx: AudioContext) => {
         audioStreamerRef.current = new AudioStreamer(audioCtx);
         audioStreamerRef.current
-          .addWorklet<any>('vumeter-out', VolMeterWorket, (ev: any) => {
-            setVolume(ev.data.volume);
-          })
+          .addWorklet(
+            'vumeter-out',
+            VolMeterWorket,
+            (ev: MessageEvent<{ volume: number }>) => {
+              setVolume(ev.data.volume);
+            }
+          )
           .then(() => {
             // Successfully added worklet
           })

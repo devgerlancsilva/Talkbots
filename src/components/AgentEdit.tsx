@@ -8,10 +8,10 @@ import {
   AGENT_COLORS,
   INTERLOCUTOR_VOICE,
   INTERLOCUTOR_VOICES,
-} from '@/lib/presets/agents';
-import Modal from './Modal';
+} from '@/lib/presets/agents.ts';
+import Modal from '@/components/Modal.tsx';
 import c from 'classnames';
-import { useAgent, useUI } from '@/lib/state';
+import { useAgent, useUI } from '@/lib/state.ts';
 
 export default function EditAgent() {
   const agent = useAgent(state => state.current);

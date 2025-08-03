@@ -5,10 +5,10 @@
 import { useEffect, useRef } from 'react';
 import { Modality } from '@google/genai';
 
-import BasicFace from '../basic-face/BasicFace';
-import { useLiveAPIContext } from '../../../contexts/LiveAPIContext';
-import { createSystemInstructions } from '@/lib/prompts';
-import { useAgent, useUser } from '@/lib/state';
+import BasicFace from '@/components/demo/basic-face/BasicFace.tsx';
+import { useLiveAPIContext } from '@/contexts/LiveAPIContext.tsx';
+import { createSystemInstructions } from '@/lib/prompts.ts';
+import { useAgent, useUser } from '@/lib/state.ts';
 
 export default function KeynoteCompanion() {
   const { client, connected, setConfig } = useLiveAPIContext();

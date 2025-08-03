@@ -4,12 +4,12 @@
 */
 import { RefObject, useEffect, useState, useRef } from 'react';
 
-import { renderBasicFace } from './basic-face-render';
+import { renderBasicFace } from './basic-face-render.ts';
 
-import useFace from '../../../hooks/demo/use-face';
-import useHover from '../../../hooks/demo/use-hover';
-import useTilt from '../../../hooks/demo/use-tilt';
-import { useLiveAPIContext } from '../../../contexts/LiveAPIContext';
+import useFace from '@/hooks/demo/use-face.ts';
+import useHover from '@/hooks/demo/use-hover.ts';
+import useTilt from '@/hooks/demo/use-tilt.ts';
+import { useLiveAPIContext } from '@/contexts/LiveAPIContext.tsx';
 
 // Minimum volume level that indicates audio output is occurring
 const AUDIO_OUTPUT_DETECTION_THRESHOLD = 0.05;
@@ -75,8 +75,10 @@ export default function BasicFace({
 
   // Render the face on the canvas
   useEffect(() => {
-    const ctx = canvasRef.current?.getContext('2d')!;
-    renderBasicFace({ ctx, mouthScale, eyeScale, color });
+    const ctx = canvasRef.current?.getContext('2d');
+    if (ctx) {
+      renderBasicFace({ ctx, mouthScale, eyeScale, color });
+    }
   }, [canvasRef, volume, eyeScale, mouthScale, color, scale]);
 
   return (

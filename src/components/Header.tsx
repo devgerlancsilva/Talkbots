@@ -2,9 +2,9 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
 */
-import { useLiveAPIContext } from '@/contexts/LiveAPIContext';
-import { Agent, createNewAgent } from '@/lib/presets/agents';
-import { useAgent, useUI, useUser } from '@/lib/state';
+import { useLiveAPIContext } from '@/contexts/LiveAPIContext.tsx';
+import { Agent, createNewAgent } from '@/lib/presets/agents.ts';
+import { useAgent, useUI, useUser } from '@/lib/state.ts';
 import c from 'classnames';
 import { useEffect, useState } from 'react';
 
@@ -15,7 +15,7 @@ export default function Header() {
     useAgent();
   const { disconnect } = useLiveAPIContext();
 
-  let [showRoomList, setShowRoomList] = useState(false);
+  const [showRoomList, setShowRoomList] = useState(false);
 
   useEffect(() => {
     addEventListener('click', () => setShowRoomList(false));

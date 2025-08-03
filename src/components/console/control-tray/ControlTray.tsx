@@ -21,10 +21,10 @@
 import cn from 'classnames';
 
 import { memo, ReactNode, useEffect, useRef, useState } from 'react';
-import { AudioRecorder } from '../../../lib/audio-recorder';
+import { AudioRecorder } from '@/lib/audio-recorder.ts';
 
-import { useLiveAPIContext } from '../../../contexts/LiveAPIContext';
-import { useUI } from '@/lib/state';
+import { useLiveAPIContext } from '@/contexts/LiveAPIContext.tsx';
+import { useUI } from '@/lib/state.ts';
 
 export type ControlTrayProps = {
   children?: ReactNode;

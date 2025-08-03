@@ -15,9 +15,9 @@ import {
   Session,
 } from '@google/genai';
 import EventEmitter from 'eventemitter3';
-import { DEFAULT_LIVE_API_MODEL } from './constants';
+import { DEFAULT_LIVE_API_MODEL } from '@/lib/constants.ts';
 import { difference } from 'lodash';
-import { base64ToArrayBuffer } from './utils';
+import { base64ToArrayBuffer } from '@/lib/utils.ts';
 
 /**
  * Represents a single log entry in the system.
@@ -78,16 +78,6 @@ export class GenAILiveClient extends EventEmitter<LiveClientEventTypes> {
     return this._status;
   }
 
-  // Workaround for type-checking issues with inherited methods
-  public on(event: string, listener: (...args: any[]) => void): this {
-    return super.on(event, listener);
-  }
-  public off(event: string, listener: (...args: any[]) => void): this {
-    return super.off(event, listener);
-  }
-  public emit(event: string, ...args: any[]): boolean {
-    return super.emit(event, ...args);
-  }
 
   /**
    * Creates a new GenAILiveClient instance.

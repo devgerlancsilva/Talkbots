@@ -2,8 +2,8 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
 */
-import Modal from './Modal';
-import { useUI, useUser } from '@/lib/state';
+import Modal from '@/components/Modal.tsx';
+import { useUI, useUser } from '@/lib/state.ts';
 
 export default function UserSettings() {
   const { name, info, setName, setInfo } = useUser();

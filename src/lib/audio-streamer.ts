@@ -21,7 +21,7 @@
 import {
   createWorketFromSrc,
   registeredWorklets,
-} from './audioworklet-registry';
+} from '@/lib/audioworklet-registry.ts';
 
 export class AudioStreamer {
   private sampleRate: number = 24000;
@@ -48,7 +48,7 @@ export class AudioStreamer {
     this.addPCM16 = this.addPCM16.bind(this);
   }
 
-  async addWorklet<T extends (d: any) => void>(
+  async addWorklet<T extends (d: MessageEvent) => void>(
     workletName: string,
     workletSrc: string,
     handler: T
@@ -171,7 +171,7 @@ export class AudioStreamer {
       const worklets = registeredWorklets.get(this.context);
 
       if (worklets) {
-        Object.entries(worklets).forEach(([workletName, graph]) => {
+        Object.entries(worklets).forEach(([, graph]) => {
           const { node, handlers } = graph;
           if (node) {
             source.connect(node);
