@@ -75,8 +75,10 @@ export default function BasicFace({
 
   // Render the face on the canvas
   useEffect(() => {
-    const ctx = canvasRef.current?.getContext('2d')!;
-    renderBasicFace({ ctx, mouthScale, eyeScale, color });
+    const ctx = canvasRef.current?.getContext('2d');
+    if (ctx) {
+      renderBasicFace({ ctx, mouthScale, eyeScale, color });
+    }
   }, [canvasRef, volume, eyeScale, mouthScale, color, scale]);
 
   return (

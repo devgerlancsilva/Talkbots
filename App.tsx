@@ -25,7 +25,7 @@ import KeynoteCompanion from '../components/demo/keynote-companion/KeynoteCompan
 import Header from '../components/Header';
 import UserSettings from '../components/UserSettings';
 import { LiveAPIProvider } from '../contexts/LiveAPIContext';
-import { useUI, useUser } from '../lib/state';
+import { useUI } from '../lib/state';
 
 const API_KEY = process.env.GEMINI_API_KEY as string;
 if (typeof API_KEY !== 'string') {

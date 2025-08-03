@@ -4,8 +4,7 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // IMPORTANT: Replace 'your-repo-name' with the name of your GitHub repository.
-  base: '/your-repo-name/', 
+  base: '/',
   plugins: [react()],
   resolve: {
     alias: {

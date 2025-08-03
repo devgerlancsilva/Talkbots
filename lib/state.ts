@@ -57,7 +57,7 @@ export const useAgent = create<{
   setCurrent: (agent: Agent | string) =>
     set({ current: typeof agent === 'string' ? getAgentById(agent) : agent }),
   update: (agentId: string, adjustments: Partial<Agent>) => {
-    let agent = getAgentById(agentId);
+    const agent = getAgentById(agentId);
     if (!agent) return;
     const updatedAgent = { ...agent, ...adjustments };
     set(state => ({

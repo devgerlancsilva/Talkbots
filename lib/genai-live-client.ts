@@ -78,16 +78,6 @@ export class GenAILiveClient extends EventEmitter<LiveClientEventTypes> {
     return this._status;
   }
 
-  // Workaround for type-checking issues with inherited methods
-  public on(event: string, listener: (...args: any[]) => void): this {
-    return super.on(event, listener);
-  }
-  public off(event: string, listener: (...args: any[]) => void): this {
-    return super.off(event, listener);
-  }
-  public emit(event: string, ...args: any[]): boolean {
-    return super.emit(event, ...args);
-  }
 
   /**
    * Creates a new GenAILiveClient instance.

@@ -15,7 +15,7 @@ export default function Header() {
     useAgent();
   const { disconnect } = useLiveAPIContext();
 
-  let [showRoomList, setShowRoomList] = useState(false);
+  const [showRoomList, setShowRoomList] = useState(false);
 
   useEffect(() => {
     addEventListener('click', () => setShowRoomList(false));
