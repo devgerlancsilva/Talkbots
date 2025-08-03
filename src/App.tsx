@@ -18,14 +18,14 @@
  * limitations under the License.
  */
 
-import AgentEdit from './components/AgentEdit.tsx';
-import ControlTray from './components/console/control-tray/ControlTray';
-import ErrorScreen from './components/demo/ErrorSreen';
-import KeynoteCompanion from './components/demo/keynote-companion/KeynoteCompanion';
-import Header from './components/Header';
-import UserSettings from './components/UserSettings';
-import { LiveAPIProvider } from './contexts/LiveAPIContext';
-import { useUI } from './lib/state';
+import AgentEdit from '../components/AgentEdit.tsx';
+import ControlTray from '../components/console/control-tray/ControlTray';
+import ErrorScreen from '../components/demo/ErrorSreen';
+import KeynoteCompanion from '../components/demo/keynote-companion/KeynoteCompanion';
+import Header from '../components/Header';
+import UserSettings from '../components/UserSettings';
+import { LiveAPIProvider } from '../contexts/LiveAPIContext';
+import { useUI } from '../lib/state';
 
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY as string;
 if (typeof API_KEY !== 'string' || API_KEY === '') {
